@@ -3,8 +3,8 @@ tools:
     path: /srv/mgrimoire
 
 mariadb:
-    password: mymariadbpassword
+    password: my.root.password
     database:
-        name: indigodb
-        password: myindigopassword
+        name: testdb
+        password: my.testdb.password
 

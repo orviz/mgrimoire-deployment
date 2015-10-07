@@ -14,25 +14,25 @@ class mariadb::server {
     include mariadb::conf
     notify { "***** $mariadb::conf::root_password *****": }
 
-    $override_options = {
-        'client' => {
-            'user' => 'root',
-            'host' => 'localhost',
-            'password' => $mariadb::conf::root_password,
-        }
-    }
+    #$override_options = {
+    #    'client' => {
+    #        'user' => 'root',
+    #        'host' => 'localhost',
+    #        'password' => $mariadb::conf::root_password,
+    #    }
+    #}
 
-    class {
-        '::mysql::server':
-            root_password    => $mariadb::conf::root_password,
-            package_name     => 'mariadb-server',
-            override_options => $override_options,
-    }
+    #class {
+    #    '::mysql::server':
+    #        root_password    => $mariadb::conf::root_password,
+    #        package_name     => 'mariadb-server',
+    #        override_options => $override_options,
+    #}
 
-    class {
-        '::mysql::client':
-            package_name     => 'mariadb-client',
-    }
+    #class {
+    #    '::mysql::client':
+    #        package_name     => 'mariadb-client',
+    #}
 }
 
 class mariadb::create_db {
