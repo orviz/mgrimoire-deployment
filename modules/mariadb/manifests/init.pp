@@ -21,18 +21,19 @@ class mariadb::server {
         }
     }
 
+    # Hack to set mysql root password for the first time
     exec {
         "set empty password on first execution":
             command => "/bin/echo -e \"[client]\nuser=root\npassword=''\" > /root/.my.cnf",
             creates => "/root/.my.cnf"
-    }  
+    }
 
     class {
         '::mysql::server':
-	    root_password    => $mariadb::conf::root_password,
+	        root_password    => $mariadb::conf::root_password,
             package_name     => 'mariadb-server',
             override_options => $override_options,
-	    require          => Exec["set empty password on first execution"],
+	        require          => Exec["set empty password on first execution"],
     }
 
     class {
