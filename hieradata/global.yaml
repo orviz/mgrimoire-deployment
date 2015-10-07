@@ -1,0 +1,10 @@
+---
+tools:
+    path: /srv/mgrimoire
+
+mariadb:
+    password: mymariadbpassword
+    database:
+        name: indigodb
+        password: myindigopassword
+
