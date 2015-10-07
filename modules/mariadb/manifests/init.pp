@@ -12,7 +12,6 @@ class mariadb {
 
 class mariadb::server {
     include mariadb::conf
-    notify { "***** $mariadb::conf::root_password *****": }
 
     $override_options = {
         'client' => {
@@ -22,11 +21,18 @@ class mariadb::server {
         }
     }
 
+    exec {
+        "set empty password on first execution":
+            command => "/bin/echo -e \"[client]\nuser=root\npassword=''\" > /root/.my.cnf",
+            creates => "/root/.my.cnf"
+    }  
+
     class {
         '::mysql::server':
-            root_password    => $mariadb::conf::root_password,
+	    root_password    => $mariadb::conf::root_password,
             package_name     => 'mariadb-server',
             override_options => $override_options,
+	    require          => Exec["set empty password on first execution"],
     }
 
     class {
