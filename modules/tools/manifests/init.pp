@@ -7,7 +7,8 @@ class tools {
     include tools::conf
 
     package {
-        ["git"]:
+        ["git",
+         "python-pip"]:
             ensure => installed,
     }
 

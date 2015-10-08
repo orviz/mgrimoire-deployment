@@ -45,6 +45,6 @@ class cvsanaly {
             cwd     => $repo_path,
             command => 'python setup.py install',
             path    => $path,
-            require => [ Package['python-setuptools'],Vcsrepo[$repo_path] ],
+            require => [ Package['python-setuptools'], Vcsrepo[$repo_path], Exec["install repositoryhandler"] ],
     }
 }

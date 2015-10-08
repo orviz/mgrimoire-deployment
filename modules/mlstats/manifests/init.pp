@@ -1,8 +1,7 @@
 class mlstats::deps {
     package {
         [
-            'postgresql-9.1',
-            'python-psycopg2',
+            "python-sqlalchemy",
         ]:
              ensure  => installed,
     }
