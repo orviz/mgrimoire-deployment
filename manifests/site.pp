@@ -1,12 +1,14 @@
 node default {
-    class {"apt": }
-    class {"mariadb": }
-    class {"tools": }
+    #class {"apt": }
+    #class {"mariadb": }
+    #class {"tools": }
 
-    class {"cvsanaly": }
-    class {"mlstats": }
-    class {"sortinghat": }
-    class {"bicho": }
-    class {"cmetrics": }
-    class {"pullpo": }
+    #class {"cvsanaly": }
+    #class {"mlstats": }
+    #class {"sortinghat": }
+    #class {"bicho": }
+    #class {"cmetrics": }
+    #class {"pullpo": }
+
+    class {"vgutils": }
 }

@@ -8,7 +8,8 @@ class tools {
 
     package {
         ["git",
-         "python-pip"]:
+         "python-pip",
+         "r-base"]:
             ensure => installed,
     }
 
