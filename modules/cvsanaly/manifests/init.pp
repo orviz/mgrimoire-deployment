@@ -3,6 +3,9 @@ class cvsanaly::deps {
         [
             "python-setuptools",
             "python-mysqldb",
+            "pymetrics",
+            "cccc",
+            "sloccount",
         ]:
             ensure => installed,
     }
