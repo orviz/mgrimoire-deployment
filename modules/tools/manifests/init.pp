@@ -3,15 +3,26 @@ class tools::conf {
     $path = $tools_data["path"]
 }
 
-class tools {
-    include tools::conf
-
+class tools::essential {
     package {
         ["git",
-         "python-pip",
-         "r-base"]:
+         "python-pip"]:
             ensure => installed,
     }
+}
+
+class tools::r {
+    package {
+        ["r-base",
+         "python-rpy2"]:
+            ensure => installed,
+    }
+}
+
+class tools {
+    include tools::conf
+    include tools::essential
+    include tools::r
 
     file {
         $tools::conf::path:
